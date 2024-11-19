@@ -23,10 +23,8 @@ namespace HangmanCodeReview.Classes
             string[] lines = ascii.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var line in lines)
             {
-                Console.WriteLine(Centred.CenterText(line));
+                Centred.CenterText(line,ConsoleColor.Green);
             }
-            Console.ForegroundColor = ConsoleColor.Gray;
-
         }
     }
 }

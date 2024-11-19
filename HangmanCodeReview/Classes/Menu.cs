@@ -14,17 +14,13 @@ namespace HangmanCodeReview.Classes
             Console.Clear();
             Ascii ascii = new Ascii();
             ascii.Art();
-            Console.WriteLine(Centred.CenterText("Välkommen till Spelet Hänga-Gubbe!"));
-            Console.WriteLine(Centred.CenterText("tryck på någon av siffrora i menyn för att gå vidare."));
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(Centred.CenterText("*****************************************"));
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine(Centred.CenterText("1. Spela"));
-            Console.WriteLine(Centred.CenterText("2. Instruktioner"));
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(Centred.CenterText("3. Avsluta"));
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.Write(Centred.CenterText("Skriv här: "));
+            Centred.CenterText("Välkommen till Spelet Hänga-Gubbe!");
+            Centred.CenterText("tryck på någon av siffrora i menyn för att gå vidare.");
+            Centred.Separator();
+            Centred.CenterText("1. Spela");
+            Centred.CenterText("2. Instruktioner");
+            Centred.CenterText("3. Avsluta",ConsoleColor.Red);
+            Centred.WriteCenteredInline("Skriv här: ");
             int input;
             bool isValidInput = int.TryParse(Console.ReadLine(), out input);
             if (isValidInput)
@@ -49,12 +45,12 @@ namespace HangmanCodeReview.Classes
                     case 3:
                         {
                             Console.Clear();
-                            Console.WriteLine("Du valde att avsluta, ha en bra dag! Välkommen åter!");
+                            Centred.CenterText("Du valde att avsluta, ha en bra dag! Välkommen åter!");
                             break;
                         }
                     default:
                         {
-                            Console.WriteLine("Ogiltligt val,tyrck valfri tangent för att försöka igen");
+                            Centred.CenterText("Ogiltligt val,tyrck valfri tangent för att försöka igen");
                             Console.ReadKey();
                             Showmenu();
                             break;
@@ -63,8 +59,8 @@ namespace HangmanCodeReview.Classes
             }
             else
             {
-                Console.WriteLine("Felaktig inmatning! Vänligen skriv en siffra.");
-                Console.WriteLine("Tryck valfri tangent för att försöka igen.");
+                Centred.CenterText("Felaktig inmatning! Vänligen skriv en siffra.");
+                Centred.CenterText("Tryck valfri tangent för att försöka igen.");
                 Console.ReadKey();
                 Showmenu();
             }
